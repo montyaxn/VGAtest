@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGAtop
-Wed Aug  7 12:00:24 2024
+Thu Aug  8 18:38:53 2024
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -14,22 +14,26 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis IP Cores Summary
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated
- 15. Parameter Settings for User Entity Instance: pll:pll|pll_0002:pll_inst|altera_pll:altera_pll_i
- 16. Parameter Settings for User Entity Instance: VGA_Ctrl:u9
- 17. Parameter Settings for User Entity Instance: VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "VGA_Ctrl:u9|vram64k:u10"
- 20. Port Connectivity Checks: "VGA_Ctrl:u9"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
- 24. Analysis & Synthesis Suppressed Messages
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated
+ 16. Parameter Settings for User Entity Instance: pll:pll|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 17. Parameter Settings for User Entity Instance: draw:u8|lambda:lambda0
+ 18. Parameter Settings for User Entity Instance: VGA_Ctrl:u9
+ 19. Parameter Settings for User Entity Instance: VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "VGA_Ctrl:u9|vram64k:u10"
+ 22. Port Connectivity Checks: "VGA_Ctrl:u9"
+ 23. Port Connectivity Checks: "draw:u8|lambda:lambda0|mult_fixed:mf0"
+ 24. Port Connectivity Checks: "draw:u8|lambda:lambda0"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -56,17 +60,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Aug  7 12:00:24 2024       ;
+; Analysis & Synthesis Status     ; Successful - Thu Aug  8 18:38:53 2024       ;
 ; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                   ; VGAtop                                      ;
 ; Top-level Entity Name           ; VGAtop                                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 96                                          ;
+; Total registers                 ; 492                                         ;
 ; Total pins                      ; 96                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,572,864                                   ;
-; Total DSP Blocks                ; 0                                           ;
+; Total DSP Blocks                ; 27                                          ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -176,9 +180,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -215,30 +219,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                            ;
 +---------------------------------------------+------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 170                                                              ;
+; Estimate of Logic utilization (ALMs needed) ; 1227                                                             ;
 ;                                             ;                                                                  ;
-; Combinational ALUT usage for logic          ; 244                                                              ;
-;     -- 7 input functions                    ; 0                                                                ;
-;     -- 6 input functions                    ; 94                                                               ;
-;     -- 5 input functions                    ; 6                                                                ;
-;     -- 4 input functions                    ; 14                                                               ;
-;     -- <=3 input functions                  ; 130                                                              ;
+; Combinational ALUT usage for logic          ; 2137                                                             ;
+;     -- 7 input functions                    ; 1                                                                ;
+;     -- 6 input functions                    ; 283                                                              ;
+;     -- 5 input functions                    ; 28                                                               ;
+;     -- 4 input functions                    ; 29                                                               ;
+;     -- <=3 input functions                  ; 1796                                                             ;
 ;                                             ;                                                                  ;
-; Dedicated logic registers                   ; 96                                                               ;
+; Dedicated logic registers                   ; 492                                                              ;
 ;                                             ;                                                                  ;
 ; I/O pins                                    ; 96                                                               ;
 ; Total MLAB memory bits                      ; 0                                                                ;
 ; Total block memory bits                     ; 1572864                                                          ;
 ;                                             ;                                                                  ;
-; Total DSP Blocks                            ; 0                                                                ;
+; Total DSP Blocks                            ; 27                                                               ;
 ;                                             ;                                                                  ;
 ; Total PLLs                                  ; 1                                                                ;
 ;     -- PLLs                                 ; 1                                                                ;
 ;                                             ;                                                                  ;
 ; Maximum fan-out node                        ; pll:pll|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 277                                                              ;
-; Total fan-out                               ; 7170                                                             ;
-; Average fan-out                             ; 9.89                                                             ;
+; Maximum fan-out                             ; 673                                                              ;
+; Total fan-out                               ; 15489                                                            ;
+; Average fan-out                             ; 5.09                                                             ;
 +---------------------------------------------+------------------------------------------------------------------+
 
 
@@ -247,16 +251,23 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                     ; Entity Name     ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |VGAtop                                      ; 244 (0)             ; 96 (0)                    ; 1572864           ; 0          ; 96   ; 0            ; |VGAtop                                                                                                                 ; VGAtop          ; work         ;
+; |VGAtop                                      ; 2137 (1)            ; 492 (0)                   ; 1572864           ; 27         ; 96   ; 0            ; |VGAtop                                                                                                                 ; VGAtop          ; work         ;
 ;    |HEXtest:hex0|                            ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|HEXtest:hex0                                                                                                    ; HEXtest         ; work         ;
-;    |VGA_Ctrl:u9|                             ; 187 (99)            ; 54 (48)                   ; 1572864           ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9                                                                                                     ; VGA_Ctrl        ; work         ;
+;    |VGA_Ctrl:u9|                             ; 186 (98)            ; 54 (48)                   ; 1572864           ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9                                                                                                     ; VGA_Ctrl        ; work         ;
 ;       |vram64k:u10|                          ; 88 (0)              ; 6 (0)                     ; 1572864           ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10                                                                                         ; vram64k         ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 88 (0)              ; 6 (0)                     ; 1572864           ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component                                                         ; altsyncram      ; work         ;
 ;             |altsyncram_03u1:auto_generated| ; 88 (0)              ; 6 (6)                     ; 1572864           ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated                          ; altsyncram_03u1 ; work         ;
 ;                |decode_61a:rden_decode_b|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated|decode_61a:rden_decode_b ; decode_61a      ; work         ;
 ;                |decode_dla:decode2|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated|decode_dla:decode2       ; decode_dla      ; work         ;
 ;                |mux_bhb:mux3|                ; 72 (72)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|VGA_Ctrl:u9|vram64k:u10|altsyncram:altsyncram_component|altsyncram_03u1:auto_generated|mux_bhb:mux3             ; mux_bhb         ; work         ;
-;    |draw:u8|                                 ; 57 (57)             ; 41 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|draw:u8                                                                                                         ; draw            ; work         ;
+;    |draw:u8|                                 ; 1950 (78)           ; 437 (59)                  ; 0                 ; 27         ; 0    ; 0            ; |VGAtop|draw:u8                                                                                                         ; draw            ; work         ;
+;       |lambda:lambda0|                       ; 1872 (464)          ; 378 (179)                 ; 0                 ; 27         ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0                                                                                          ; lambda          ; work         ;
+;          |abs:abs0|                          ; 96 (96)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|abs:abs0                                                                                 ; abs             ; work         ;
+;          |div_last:divl0|                    ; 123 (123)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|div_last:divl0                                                                           ; div_last        ; work         ;
+;          |log:log0|                          ; 297 (297)           ; 199 (199)                 ; 0                 ; 3          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|log:log0                                                                                 ; log             ; work         ;
+;          |mult_fixed:mf0|                    ; 276 (276)           ; 0 (0)                     ; 0                 ; 8          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|mult_fixed:mf0                                                                           ; mult_fixed      ; work         ;
+;          |mult_fixed:mf1|                    ; 340 (340)           ; 0 (0)                     ; 0                 ; 8          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|mult_fixed:mf1                                                                           ; mult_fixed      ; work         ;
+;          |mult_fixed:mf2|                    ; 276 (276)           ; 0 (0)                     ; 0                 ; 8          ; 0    ; 0            ; |VGAtop|draw:u8|lambda:lambda0|mult_fixed:mf2                                                                           ; mult_fixed      ; work         ;
 ;    |pll:pll|                                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|pll:pll                                                                                                         ; pll             ; pll          ;
 ;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|pll:pll|pll_0002:pll_inst                                                                                       ; pll_0002        ; pll          ;
 ;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGAtop|pll:pll|pll_0002:pll_inst|altera_pll:altera_pll_i                                                               ; altera_pll      ; work         ;
@@ -273,6 +284,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
 
 
++--------------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary           ;
++------------------------------------------+-------------+
+; Statistic                                ; Number Used ;
++------------------------------------------+-------------+
+; Two Independent 18x18                    ; 2           ;
+; Sum of two 18x18                         ; 1           ;
+; Independent 27x27                        ; 24          ;
+; Total number of DSP blocks               ; 27          ;
+;                                          ;             ;
+; Fixed Point Unsigned Multiplier          ; 28          ;
+; Fixed Point Dedicated Output Adder Chain ; 3           ;
++------------------------------------------+-------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis IP Cores Summary                                                                             ;
 +--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
@@ -283,16 +309,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------+
-; Registers Removed During Synthesis                                ;
-+----------------------------------------+--------------------------+
-; Register name                          ; Reason for Removal       ;
-+----------------------------------------+--------------------------+
-; draw:u8|B[1..7]                        ; Merged with draw:u8|B[0] ;
-; draw:u8|G[0..7]                        ; Merged with draw:u8|B[0] ;
-; draw:u8|R[1..7]                        ; Merged with draw:u8|R[0] ;
-; Total Number of Removed Registers = 22 ;                          ;
-+----------------------------------------+--------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; draw:u8|lambda:lambda0|b[0..25,34..63]  ; Stuck at GND due to stuck port data_in ;
+; draw:u8|lambda:lambda0|a[0..25,34..63]  ; Stuck at GND due to stuck port data_in ;
+; draw:u8|G[0]                            ; Merged with draw:u8|B[0]               ;
+; draw:u8|R[0]                            ; Merged with draw:u8|B[0]               ;
+; draw:u8|G[1]                            ; Merged with draw:u8|B[1]               ;
+; draw:u8|R[1]                            ; Merged with draw:u8|B[1]               ;
+; draw:u8|G[2]                            ; Merged with draw:u8|B[2]               ;
+; draw:u8|R[2]                            ; Merged with draw:u8|B[2]               ;
+; draw:u8|G[3]                            ; Merged with draw:u8|B[3]               ;
+; draw:u8|R[3]                            ; Merged with draw:u8|B[3]               ;
+; draw:u8|G[4]                            ; Merged with draw:u8|B[4]               ;
+; draw:u8|R[4]                            ; Merged with draw:u8|B[4]               ;
+; draw:u8|G[5]                            ; Merged with draw:u8|B[5]               ;
+; draw:u8|R[5]                            ; Merged with draw:u8|B[5]               ;
+; draw:u8|G[6]                            ; Merged with draw:u8|B[6]               ;
+; draw:u8|R[6]                            ; Merged with draw:u8|B[6]               ;
+; draw:u8|G[7]                            ; Merged with draw:u8|B[7]               ;
+; draw:u8|R[7]                            ; Merged with draw:u8|B[7]               ;
+; draw:u8|p[1..30]                        ; Merged with draw:u8|p[0]               ;
+; draw:u8|p[0]                            ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 159 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -300,12 +343,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 96    ;
-; Number of registers using Synchronous Clear  ; 61    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 492   ;
+; Number of registers using Synchronous Clear  ; 337   ;
+; Number of registers using Synchronous Load   ; 95    ;
 ; Number of registers using Asynchronous Clear ; 24    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 40    ;
+; Number of registers using Clock Enable       ; 421   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -321,16 +364,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |VGAtop|draw:u8|X[7]          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |VGAtop|draw:u8|R[0]          ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 0 LEs                ; 44 LEs                 ; Yes        ; |VGAtop|draw:u8|cnt[0]        ;
-; 8:1                ; 24 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; Yes        ; |VGAtop|VGA_Ctrl:u9|vramR[17] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |VGAtop|draw:u8|Y[3]                                  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|n[0]                   ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|Xfind_max[30] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|cnt_max[11]   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|index[4]      ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|oLambda[63]            ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|Xfind_max[61] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|index[12]              ;
+; 4:1                ; 63 bits   ; 126 LEs       ; 63 LEs               ; 63 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|x[2]                   ;
+; 4:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |VGAtop|draw:u8|p[54]                                 ;
+; 5:1                ; 57 bits   ; 171 LEs       ; 114 LEs              ; 57 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|oLambda[35]            ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|X[28]         ;
+; 8:1                ; 24 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; Yes        ; |VGAtop|VGA_Ctrl:u9|vramR[17]                         ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 0 LEs                ; 120 LEs                ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|oY[28]        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |VGAtop|draw:u8|lambda:lambda0|log:log0|oY[33]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |VGAtop|draw:u8|lambda:lambda0|r_i[27]                ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |VGAtop|draw:u8|lambda:lambda0|r_i[54]                ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |VGAtop|draw:u8|lambda:lambda0|r_i[33]                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------+
@@ -589,6 +646,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw:u8|lambda:lambda0 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; s_len          ; 4     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: VGA_Ctrl:u9 ;
 +----------------+-------+---------------------------------+
@@ -711,36 +778,70 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "draw:u8|lambda:lambda0|mult_fixed:mf0" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; iY[0] ; Input ; Info     ; Stuck at GND                           ;
++-------+-------+----------+----------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "draw:u8|lambda:lambda0" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; iS[6..5] ; Input ; Info     ; Stuck at VCC         ;
+; iS[4..2] ; Input ; Info     ; Stuck at GND         ;
+; iS[7]    ; Input ; Info     ; Stuck at GND         ;
+; iS[1]    ; Input ; Info     ; Stuck at VCC         ;
+; iS[0]    ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 96                          ;
+; arriav_ff             ; 492                         ;
 ;     CLR               ; 2                           ;
 ;     CLR SCLR          ; 22                          ;
-;     ENA               ; 2                           ;
-;     ENA SCLR          ; 38                          ;
-;     SCLR              ; 1                           ;
-;     plain             ; 31                          ;
-; arriav_lcell_comb     ; 249                         ;
-;     arith             ; 79                          ;
-;         1 data inputs ; 78                          ;
-;         2 data inputs ; 1                           ;
-;     normal            ; 170                         ;
+;     ENA               ; 50                          ;
+;     ENA SCLR          ; 279                         ;
+;     ENA SCLR SLD      ; 30                          ;
+;     ENA SLD           ; 62                          ;
+;     SCLR              ; 6                           ;
+;     SLD               ; 3                           ;
+;     plain             ; 38                          ;
+; arriav_lcell_comb     ; 2141                        ;
+;     arith             ; 1194                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 693                         ;
+;         2 data inputs ; 436                         ;
+;         3 data inputs ; 64                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 628                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 45                          ;
-;         4 data inputs ; 14                          ;
-;         5 data inputs ; 6                           ;
-;         6 data inputs ; 94                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 237                         ;
+;         4 data inputs ; 29                          ;
+;         5 data inputs ; 28                          ;
+;         6 data inputs ; 283                         ;
+;     shared            ; 318                         ;
+;         1 data inputs ; 30                          ;
+;         2 data inputs ; 258                         ;
+;         3 data inputs ; 30                          ;
+; arriav_mac            ; 27                          ;
 ; boundary_port         ; 96                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 192                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 2.36                        ;
+; Max LUT depth         ; 11.80                       ;
+; Average LUT depth     ; 7.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -749,7 +850,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -759,7 +860,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Aug  7 12:00:16 2024
+    Info: Processing started: Thu Aug  8 18:38:43 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGAtop -c VGAtop
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -768,8 +869,14 @@ Info (12021): Found 2 design units, including 2 entities, in source file /home/z
     Info (12023): Found entity 2: HEXtest File: /home/zengaku24/VGAtest/VGAtest.v Line: 126
 Info (12021): Found 1 design units, including 1 entities, in source file /home/zengaku24/VGAtest/VGActrl.v
     Info (12023): Found entity 1: VGA_Ctrl File: /home/zengaku24/VGAtest/VGActrl.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/zengaku24/VGAtest/draw.v
+Info (12021): Found 7 design units, including 7 entities, in source file /home/zengaku24/VGAtest/draw.v
     Info (12023): Found entity 1: draw File: /home/zengaku24/VGAtest/draw.v Line: 1
+    Info (12023): Found entity 2: lambda2color File: /home/zengaku24/VGAtest/draw.v Line: 107
+    Info (12023): Found entity 3: lambda File: /home/zengaku24/VGAtest/draw.v Line: 119
+    Info (12023): Found entity 4: mult_fixed File: /home/zengaku24/VGAtest/draw.v Line: 229
+    Info (12023): Found entity 5: div_last File: /home/zengaku24/VGAtest/draw.v Line: 239
+    Info (12023): Found entity 6: abs File: /home/zengaku24/VGAtest/draw.v Line: 254
+    Info (12023): Found entity 7: log File: /home/zengaku24/VGAtest/draw.v Line: 266
 Info (12021): Found 1 design units, including 1 entities, in source file /home/zengaku24/VGAtest/pll.v
     Info (12023): Found entity 1: pll File: /home/zengaku24/VGAtest/pll.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file /home/zengaku24/VGAtest/pll/pll_0002.v
@@ -782,6 +889,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file /home/z
     Info (12023): Found entity 1: cram File: /home/zengaku24/VGAtest/cram.v Line: 40
 Warning (10236): Verilog HDL Implicit Net warning at VGAtest.v(41): created implicit net for "NRST" File: /home/zengaku24/VGAtest/VGAtest.v Line: 41
 Warning (10236): Verilog HDL Implicit Net warning at VGAtest.v(87): created implicit net for "VGA_Read" File: /home/zengaku24/VGAtest/VGAtest.v Line: 87
+Warning (10222): Verilog HDL Parameter Declaration warning at draw.v(131): Parameter Declaration in module "lambda" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/zengaku24/VGAtest/draw.v Line: 131
 Info (12127): Elaborating entity "VGAtop" for the top level hierarchy
 Warning (10858): Verilog HDL warning at VGAtest.v(36): object Xposin used but never assigned File: /home/zengaku24/VGAtest/VGAtest.v Line: 36
 Warning (10858): Verilog HDL warning at VGAtest.v(36): object Yposin used but never assigned File: /home/zengaku24/VGAtest/VGAtest.v Line: 36
@@ -862,8 +970,20 @@ Info (12133): Instantiated megafunction "pll:pll|pll_0002:pll_inst|altera_pll:al
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "draw" for hierarchy "draw:u8" File: /home/zengaku24/VGAtest/VGAtest.v Line: 82
-Warning (10230): Verilog HDL assignment warning at draw.v(27): truncated value with size 32 to match size of target (16) File: /home/zengaku24/VGAtest/draw.v Line: 27
-Warning (10230): Verilog HDL assignment warning at draw.v(55): truncated value with size 32 to match size of target (22) File: /home/zengaku24/VGAtest/draw.v Line: 55
+Warning (10230): Verilog HDL assignment warning at draw.v(31): truncated value with size 32 to match size of target (16) File: /home/zengaku24/VGAtest/draw.v Line: 31
+Warning (10230): Verilog HDL assignment warning at draw.v(32): truncated value with size 32 to match size of target (16) File: /home/zengaku24/VGAtest/draw.v Line: 32
+Info (12128): Elaborating entity "lambda2color" for hierarchy "draw:u8|lambda2color:l2c0" File: /home/zengaku24/VGAtest/draw.v Line: 51
+Info (12128): Elaborating entity "lambda" for hierarchy "draw:u8|lambda:lambda0" File: /home/zengaku24/VGAtest/draw.v Line: 65
+Warning (10230): Verilog HDL assignment warning at draw.v(210): truncated value with size 32 to match size of target (16) File: /home/zengaku24/VGAtest/draw.v Line: 210
+Warning (10230): Verilog HDL assignment warning at draw.v(217): truncated value with size 32 to match size of target (16) File: /home/zengaku24/VGAtest/draw.v Line: 217
+Info (12128): Elaborating entity "mult_fixed" for hierarchy "draw:u8|lambda:lambda0|mult_fixed:mf0" File: /home/zengaku24/VGAtest/draw.v Line: 152
+Info (12128): Elaborating entity "abs" for hierarchy "draw:u8|lambda:lambda0|abs:abs0" File: /home/zengaku24/VGAtest/draw.v Line: 157
+Info (12128): Elaborating entity "log" for hierarchy "draw:u8|lambda:lambda0|log:log0" File: /home/zengaku24/VGAtest/draw.v Line: 171
+Warning (10036): Verilog HDL or VHDL warning at draw.v(282): object "iszero" assigned a value but never read File: /home/zengaku24/VGAtest/draw.v Line: 282
+Warning (10230): Verilog HDL assignment warning at draw.v(292): truncated value with size 64 to match size of target (32) File: /home/zengaku24/VGAtest/draw.v Line: 292
+Warning (10230): Verilog HDL assignment warning at draw.v(297): truncated value with size 32 to match size of target (5) File: /home/zengaku24/VGAtest/draw.v Line: 297
+Warning (10230): Verilog HDL assignment warning at draw.v(309): truncated value with size 65 to match size of target (64) File: /home/zengaku24/VGAtest/draw.v Line: 309
+Info (12128): Elaborating entity "div_last" for hierarchy "draw:u8|lambda:lambda0|div_last:divl0" File: /home/zengaku24/VGAtest/draw.v Line: 192
 Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "VGA_Ctrl:u9" File: /home/zengaku24/VGAtest/VGAtest.v Line: 111
 Warning (10036): Verilog HDL or VHDL warning at VGActrl.v(76): object "HACT" assigned a value but never read File: /home/zengaku24/VGAtest/VGActrl.v Line: 76
 Warning (10036): Verilog HDL or VHDL warning at VGActrl.v(95): object "cwraddress" assigned a value but never read File: /home/zengaku24/VGAtest/VGActrl.v Line: 95
@@ -958,17 +1078,18 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: /home/zengaku24/VGAtest/VGAtest.v Line: 6
     Warning (15610): No output dependent on input pin "KEY[2]" File: /home/zengaku24/VGAtest/VGAtest.v Line: 6
     Warning (15610): No output dependent on input pin "KEY[3]" File: /home/zengaku24/VGAtest/VGAtest.v Line: 6
-Info (21057): Implemented 553 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2547 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
-    Info (21061): Implemented 264 logic cells
+    Info (21061): Implemented 2231 logic cells
     Info (21064): Implemented 192 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 70 warnings
-    Info: Peak virtual memory: 651 megabytes
-    Info: Processing ended: Wed Aug  7 12:00:24 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21062): Implemented 27 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 662 megabytes
+    Info: Processing ended: Thu Aug  8 18:38:53 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

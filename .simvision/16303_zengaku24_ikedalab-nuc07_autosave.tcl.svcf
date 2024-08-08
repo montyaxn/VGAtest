@@ -1,0 +1,246 @@
+
+#
+# Preferences
+#
+preferences set txe-locate-add-fibers 1
+preferences set signal-type-colors {assertion #FF0000 output #FFA500 group #0099FF inout #00FFFF input #FFFF00 fiber #00EEEE errorsignal #FF0000 unknown #FFFFFF overlay #0099FF internal #00FF00 reference #FFFFFF}
+preferences set txe-navigate-search-locate 0
+preferences set txe-view-hold 0
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set verilog-colors {Su #ff0099 0 {} 1 {} HiZ #ff9900 We #00ffff Pu #9900ff Sm #00ff99 X #ff0000 StrX #ff0000 other #ffff00 Z #ff9900 Me #0000ff La #ff00ff St {}}
+preferences set toolbar-sendToIndago-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set txe-navigate-waveform-locate 1
+preferences set txe-view-hidden 0
+preferences set waveform-height 30
+preferences set toolbar-Standard-Console {
+  usual
+  position -pos 1
+}
+preferences set txe-search-show-linenumbers 1
+preferences set toolbar-Search-Console {
+  usual
+  position -pos 2
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set txe-navigate-waveform-next-child 1
+preferences set vhdl-colors {X #ff0000 0 {} L #00ffff H #00ffff U #9900ff 1 {} - {} Z #ff9900 W #ff0000}
+preferences set txe-locate-scroll-x 1
+preferences set txe-locate-scroll-y 1
+preferences set txe-locate-pop-waveform 1
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 1803x1175+241+41}] != ""} {
+    window geometry "Design Browser 1" 1803x1175+241+41
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::simtop.draw0.lambda0 
+browser set \
+    -signalsort name
+browser yview see  simulator::simtop.draw0.lambda0 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 5" -geometry 2540x1400+160+221}] != ""} {
+    window geometry "Waveform 5" 2540x1400+160+221
+}
+window target "Waveform 5" on
+waveform using {Waveform 5}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 603
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.B[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.CHAR[7:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.CLK
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.CX[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.CY[3:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.G[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.KEY[3:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.NRST
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.R[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.SW[9:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.X[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.Y[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.addr[15:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.color[7:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.firstclk
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda_calcend
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda_end
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda_out[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda_start
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.outB[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.outG[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.outR[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.p[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.N_MAX
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.a[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.b[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.firstclk
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.iCLK
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.iP
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.iS[5:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.iStart
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.iX[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.iY[7:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.index[15:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.lambda_last[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.log_calcend
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.log_in[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.log_out[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.log_start
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.n[15:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.nextx[63:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.oCalc_end
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.oLambda[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.r_i[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.r_i_n[1:0]}
+	} ]
+waveform format $id -radix %b
+set id [waveform add -signals  {
+	simulator::simtop.draw0.lambda0.s_len
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.temp0[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.temp1[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.temp2[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.x[63:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::simtop.draw0.lambda0.x1x[63:0]}
+	} ]
+
+waveform xview limits 11910ns 13910ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+261+564
+
+#
+# Layout selection
+#
