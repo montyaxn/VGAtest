@@ -12,8 +12,8 @@ module draw (
     SW,
     KEY
 );
-  parameter s_len = 2;
-  parameter s = 2'b01;
+  // parameter s_len = 2;
+  // parameter s = 2'b01;
 
 
   input [9:0] SW;
@@ -29,14 +29,8 @@ module draw (
   reg state;
 
   assign addr = {Y, X} + 'b1;
-  reg [21:0] cnt;
 
-  parameter s_len = 2 - 1;
-  parameter [s_len:0] s = 'b01;
-  parameter x_exp = 6;
-  parameter x_int = 2;
-  reg [15:0] n;
-  reg [ 7:0] x;
+  
 
   always @(posedge CLK) begin
     if (!NRST) begin
@@ -58,11 +52,6 @@ module draw (
       {Y, X} <= addr;
 
     end else begin
-      cnt <= cnt + 1;
-      if (cnt == 0) begin
-        {Y, X} <= addr;
-        state  <= ~state;
-      end
     end
   end
 
@@ -82,21 +71,35 @@ module lambda #(
 );
   parameter N_MAX=64;
 
-  reg [5:0] index;
+  reg [15:0] n;
+  reg [15:0] index;
   reg [63:0] x;
   reg [63:0] a,b;
+
+  wire [63:0] next;
+  assign nexta = a*x*((1<<32)-x);
+  assign nextb = b*x*((1<<32)-x);
 
   always @(posedge iCLK) begin
     if(iStart) begin
       oLambda <= 0;
       oCalc_end <= 0;
+      n <= 0;
       index <= 0;
       a <= iX<<(32-6);
       b <= iY<<(32-6);
       x <= 64'h0000000080000000;
-    end else if(!oCalc_end && index+1 != 0) begin
-      x <= s[index[0]]*x*(1<<32-x);
-    end else if(!oCalc_end && index+1 == 0) begin
+    end else if(!oCalc_end && n != N_MAX) begin
+      x <= (iS[index]*a + iS[index]*b)*x*(1<<32-x);
+      if(n!=0) begin
+        oLambda <= oLambda + 
+      end
+      if(index==s_len) begin
+        index <= 0;
+      end else begin
+        index <= index + 1;
+      end
+    end else if(!oCalc_end && n == N_MAX) begin
       oCalc_end <= 1;
     end
   end
