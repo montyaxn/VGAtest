@@ -25,46 +25,139 @@ module draw (
   output reg [3:0] CY;
   output reg [7:0] CHAR;
 
-  wire [3:0] lambdas_available;
-  assign lambdas_available = {lambda_calcend0,lambda_calcend1,lambda_calcend2,lambda_calcend3};
+  reg[1:0] lambda_index;
 
-  wire [15:0] addr;
-  wire [15:0] addr_next;
+  reg [3:0] lambdas_available;
+  assign lambdas_available = {lambda3_calcend,lambda2_calcend,lambda1_calcend,lambda0_calcend};
+  reg [3:0] lambdas_start;
+  wire lambda0_start,lambda1_start,lambda2_start,lambda3_start;
+  assign lambda0_start = lambdas_start[0];
+  assign lambda1_start = lambdas_start[1];
+  assign lambda2_start = lambdas_start[2];
+  assign lambda3_start = lambdas_start[3];
+  wire [63:0] lambda0_out,lambda1_out,lambda2_out,lambda3_out;
+  reg [7:0] X0,Y0,X1,Y1,X2,Y2,X3,Y3;
+  reg [7:0] Xi,Yi;
+  assign Xi = lambda_index == 0 ? X0 : lambda_index == 1 ? X1 : lambda_index == 2? X2 : X3;
+  assign Yi = lambda_index == 0 ? Y0 : lambda_index == 1 ? Y1 : lambda_index == 2? Y2 : Y3;
+  reg [15:0] nextXY;
+  wire [7:0] outR0,outG0,outB0,outR1,outG1,outB1,outR2,outG2,outB2,outR3,outG3,outB3;
+  wire [7:0] outRi,outGi,outBi;
+  assign outRi = lambda_index == 0 ? outR0 : lambda_index == 1 ? outR1 : lambda_index == 2? outR2 : outR3;
+  assign outGi = lambda_index == 0 ? outG0 : lambda_index == 1 ? outG1 : lambda_index == 2? outG2 : outG3;
+  assign outBi = lambda_index == 0 ? outB0 : lambda_index == 1 ? outB1 : lambda_index == 2? outB2 : outB3;
 
-  assign addr = {Y, X} + 'b1;
-  assign addr_next = addr + 'b1;
-  wire [7:0] nextX,nextY;
-  assign {nextY,nextX} = addr_next;
+  parameter s_len = 4;
+  parameter s = 8'b01100010;
+
+  lambda #(
+      .s_len(s_len)
+  ) lambda0 (
+      .iCLK(CLK),
+      .iStart(lambda0_start),
+      .iX(X0),
+      .iY(Y0),
+      .iS(s),
+      .iP(p),
+      .oLambda(lambda0_out),
+      .oCalc_end(lambda0_calcend)
+  );
+  lambda2color l2c0 (
+      .iLambda(lambda0_out),
+      .oR(outR0),
+      .oG(outG0),
+      .oB(outB0)
+  );
+  lambda #(
+      .s_len(s_len)
+  ) lambda1 (
+      .iCLK(CLK),
+      .iStart(lambda0_start),
+      .iX(X1),
+      .iY(Y1),
+      .iS(s),
+      .iP(p),
+      .oLambda(lambda1_out),
+      .oCalc_end(lambda1_calcend)
+  );
+  lambda2color l2c1 (
+      .iLambda(lambda1_out),
+      .oR(outR1),
+      .oG(outG1),
+      .oB(outB1)
+  );
+  lambda #(
+      .s_len(s_len)
+  ) lambda2 (
+      .iCLK(CLK),
+      .iStart(lambda2_start),
+      .iX(X2),
+      .iY(Y2),
+      .iS(s),
+      .iP(p),
+      .oLambda(lambda2_out),
+      .oCalc_end(lambda2_calcend)
+  );
+  lambda2color l2c2 (
+      .iLambda(lambda2_out),
+      .oR(outR2),
+      .oG(outG2),
+      .oB(outB2)
+  );
+  lambda #(
+      .s_len(s_len)
+  ) lambda3 (
+      .iCLK(CLK),
+      .iStart(lambda3_start),
+      .iX(X3),
+      .iY(Y3),
+      .iS(s),
+      .iP(p),
+      .oLambda(lambda3_out),
+      .oCalc_end(lambda3_calcend)
+  );
+  lambda2color l2c3 (
+      .iLambda(lambda3_out),
+      .oR(outR3),
+      .oG(outG3),
+      .oB(outB3)
+  );
+
+  // wire [15:0] addr;
+  // wire [15:0] addr_next;
+
+  // assign addr = {Y, X} + 'b1;
+  // assign addr_next = addr + 'b1;
+  // wire [7:0] nextX,nextY;
+  // assign {nextY,nextX} = addr_next;
 
   reg [63:0] p;
 
-  reg [1:0] lambda_lookup_index;
 
-  reg lambda_start;
-  wire lambda_end;
-  wire lambda_calcend;
-  wire [63:0] lambda_out;
+  // reg lambda_start;
+  // wire lambda_calcend;
+  // wire [63:0] lambda_out;
 
-  wire [7:0] outR, outG, outB;
-  lambda2color l2c0 (
-      .iLambda(lambda_out),
-      .oR(outR),
-      .oG(outG),
-      .oB(outB)
-  );
+  // wire [7:0] outR, outG, outB;
+  // lambda2color l2c (
+  //     .iLambda(lambda_out),
+  //     .oR(outR),
+  //     .oG(outG),
+  //     .oB(outB)
+  // );
 
-  lambda #(
-      .s_len(4)
-  ) lambda0 (
-      .iCLK(CLK),
-      .iStart(lambda_start),
-      .iX(nextX),
-      .iY(nextY),
-      .iS(8'b01100010),
-      .iP(p),
-      .oLambda(lambda_out),
-      .oCalc_end(lambda_calcend)
-  );
+  // lambda #(
+  //     .s_len(4)
+  // ) lambda (
+  //     .iCLK(CLK),
+  //     .iStart(lambda_start),
+  //     .iX(nextX),
+  //     .iY(nextY),
+  //     .iS(8'b01100010),
+  //     .iP(p),
+  //     .oLambda(lambda_out),
+  //     .oCalc_end(lambda_calcend)
+  // );
 
   reg firstclk;
 
@@ -80,21 +173,43 @@ module draw (
       CX <= 0;
       CY <= 0;
       CHAR <= 0;
-
-      lambda_start <= 0;
+      
       firstclk <= 1;
       p <= 0;
-    end else if ((lambda_calcend && !lambda_start) || firstclk) begin
-      firstclk <= 0;
-      {Y, X} <= addr;
-      lambda_start <= 1;
-      R <= outR;
-      G <= outG;
-      B <= outB;
-      if (addr == 0) begin
-        p <= (p <= ('b100 << 32)) ? (p + (1 << 31)) : 0;
+      lambda_index <= 0;
+      nextXY = 0;
+    end 
+    else begin
+      if((lambdas_available[lambda_index] && !lambdas_start[lambda_index]) || firstclk) begin
+        firstclk <= 0;
+        lambdas_start[lambda_index] <= 1;
+        {Y,X} <= {Yi,Xi};
+        R <= outRi;
+        G <= outGi;
+        B <= outBi;
+        {Yi,Xi} <= nextXY;
+        nextXY <= nextXY+1;
+        lambda_index <= lambda_index + 1;
+        if(nextXY == 0) begin
+          p <= (p <= ('b100 << 32)) ? (p + (1 << 31)) : 0;
+        end
+      end else if(!lambdas_available[lambda_index]) begin
+        lambdas_start[lambda_index] <=0;
+        lambda_index <= lambda_index + 1;
       end
-    end  // else if (addr == 0 && lambda_calcend && !lambda_start) begin
+    end
+    // else if ((lambda_calcend && !lambda_start) || firstclk) begin
+    //   firstclk <= 0;
+    //   {Y, X} <= addr;
+    //   lambda_start <= 1;
+    //   R <= outR;
+    //   G <= outG;
+    //   B <= outB;
+    //   if (addr == 0) begin
+    //     p <= (p <= ('b100 << 32)) ? (p + (1 << 31)) : 0;
+    //   end
+    // end  
+    // else if (addr == 0 && lambda_calcend && !lambda_start) begin
          //   {Y, X} <= addr;
          //   lambda_start <= 1;
 
@@ -102,9 +217,9 @@ module draw (
          //   R <= outR;
          //   G <= outG;
          //   B <= outB; end
-    else if (!lambda_calcend) begin
-      lambda_start <= 0;
-    end
+    // else if (!lambda_calcend) begin
+    //   lambda_start <= 0;
+    // end
   end
 
 endmodule
