@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu Aug  8 18:38:53 2024
+Analysis & Synthesis Status : Successful - Fri Aug  9 12:41:03 2024
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : VGAtop
 Top-level Entity Name : VGAtop
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 492
+Total registers : 1866
 Total pins : 96
 Total virtual pins : 0
 Total block memory bits : 1,572,864
-Total DSP Blocks : 27
+Total DSP Blocks : 108
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

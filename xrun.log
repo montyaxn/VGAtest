@@ -1,5 +1,5 @@
 xrun(64): 19.09-s008: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	19.09-s008: Started on Aug 08, 2024 at 17:36:07 JST
+TOOL:	xrun(64)	19.09-s008: Started on Aug 09, 2024 at 12:18:48 JST
 xrun
 	+gui
 	+access+r
@@ -7,34 +7,55 @@ xrun
 	test/test_draw.v
 	draw.v
 Recompiling... reason: file './draw.v' is newer than expected.
-	expected: Thu Aug  8 17:29:55 2024
-	actual:   Thu Aug  8 17:35:44 2024
+	expected: Fri Aug  9 12:16:59 2024
+	actual:   Fri Aug  9 12:18:40 2024
 file: draw.v
 	module worklib.draw:v
+		errors: 0, warnings: 0
+	module worklib.lambda2color:v
+		errors: 0, warnings: 0
+	module worklib.lambda:v
+		errors: 0, warnings: 0
+	module worklib.mult_fixed:v
+		errors: 0, warnings: 0
+	module worklib.div_last:v
+		errors: 0, warnings: 0
+	module worklib.abs:v
+		errors: 0, warnings: 0
+	module worklib.log:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Top level design units:
 		simtop
-      .iP(p),
-          |
-xmelab: *W,CUVMPW (./draw.v,57|10): port sizes differ in port connection (64/1).
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.draw:v <0x65602007>
-			streams:  14, words:  6655
+		worklib.lambda2color:v <0x7d727b95>
+			streams:   1, words:   154
+		worklib.div_last:v <0x458d9909>
+			streams:   3, words:   689
+		worklib.log:v <0x554f2f0d>
+			streams:  12, words:  6189
+		worklib.abs:v <0x588a2d75>
+			streams:   1, words:   325
+		worklib.mult_fixed:v <0x22bfbd9e>
+			streams:   2, words:   770
+		worklib.lambda:v <0x3d2e71c9>
+			streams:  14, words:  6424
+		worklib.draw:v <0x5102b0c3>
+			streams:  21, words:  9226
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		              Instances  Unique
-		Modules:             10       8
-		Registers:           29      29
-		Scalar wires:         8       -
-		Vectored wires:      39       -
-		Always blocks:        4       4
-		Initial blocks:       1       1
-		Cont. assignments:   16      15
-		Pseudo assignments:   7       7
+		               Instances  Unique
+		Modules:              98       8
+		Registers:           223      36
+		Scalar wires:         51       -
+		Vectored wires:      347       -
+		Always blocks:        26       4
+		Initial blocks:        1       1
+		Cont. assignments:   192      15
+		Pseudo assignments:   87      10
 	Writing initial simulation snapshot: worklib.simtop:v
 xcelium> 
 xcelium> source /home/cad/cadence/XCELIUM1909/tools/xcelium/files/xmsimrc
@@ -47,4 +68,6 @@ xcelium> file delete .reinvoke.sim
 xcelium> run
 Simulation complete via $finish(1) at time 100000300 NS + 0
 ./test/test_draw.v:31     #100000000 $finish;
-xcelium> 
+xcelium> ...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	19.09-s008: Exiting on Aug 09, 2024 at 13:13:36 JST  (total: 00:54:48)

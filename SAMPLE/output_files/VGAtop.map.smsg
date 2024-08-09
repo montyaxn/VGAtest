@@ -1,1 +1,2 @@
 Info (10281): Verilog HDL Declaration information at VGAtest.v(15): object "HEX0" differs only in case from object "hex0" in the same scope File: /home/zengaku24/VGAtest/VGAtest.v Line: 15
+Warning (10268): Verilog HDL information at draw.v(205): always construct contains both blocking and non-blocking assignments File: /home/zengaku24/VGAtest/draw.v Line: 205
